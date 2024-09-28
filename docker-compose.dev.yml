@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: todo_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+    networks:
+      - nestjs-network
+  
+  nestjs:
+    build:
+      context: . # The NestJS application directory
+    image: test-api/nestjs:1.0
+    container_name: test-api
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_PORT: 5432
+      POSTGRES_DB: todo_db
+      POSTGRES_HOST: postgres
+    ports:
+      - "3000:3000"
+    depends_on:
+      - postgres
+    networks:
+      - nestjs-network
+
+networks:
+  nestjs-network:
+    driver: bridge
+
+volumes:
+  postgres_data:

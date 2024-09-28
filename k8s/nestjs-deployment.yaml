@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nestjs
+  labels:
+    app: nestjs
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nestjs
+  template:
+    metadata:
+      labels:
+        app: nestjs
+    spec:
+      containers:
+        - name: nestjs
+          image: test-api/nestjs:1.0
+          ports:
+            - containerPort: 3000
+          env:
+            - name: POSTGRES_USER
+              value: "postgres"
+            - name: POSTGRES_PASSWORD
+              value: "postgres"
+            - name: POSTGRES_PORT
+              value: "5432"
+            - name: POSTGRES_DB
+              value: "todo_db"
+            - name: POSTGRES_HOST
+              value: "postgres"  # Service name of Postgres
