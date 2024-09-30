@@ -28,11 +28,11 @@ docker-compose -v
 3. enter into test-ui i.e. angular repo folder - `cd test-ui`
 4. run docker-compose for angular, nestjs & postgres - `docker-compose up`
 
-- If there is still any issue while setup, run these command and then above again -
-    - a. `docker stop $(docker ps -a -q)`
-    - b. `docker rm $(docker ps -a -q)`
-    - c. `docker rmi postgres test-api/nestjs:1.0 test-ui/angular:1.0`
-    - d. Remove `pgdata` folder in `test-api` - `cd test-api && rm -rf pgdata`
+    - If there is still any issue while setup, run these command and then above again -
+        - a. `docker stop $(docker ps -a -q)`
+        - b. `docker rm $(docker ps -a -q)`
+        - c. `docker rmi postgres test-api/nestjs:1.0 test-ui/angular:1.0`
+        - d. Remove `pgdata` folder in `test-api` - `cd test-api && rm -rf pgdata`
 5. Register a user by visiting - http://localhost:4200/auth/register
 6. Login using registered user by visiting - http://localhost:4200/auth/login
 7. View / Create / Edit / Delete todos by visiting - http://localhost:4200/todos 
@@ -43,11 +43,11 @@ docker-compose -v
 1. clone repo - `git clone https://github.com/vijayliebe/test-api.git`
 2. enter into repo - `cd test-api`
 3. `docker compose -f docker-compose.dev.yml up`
-
-- If there is any issue, run these commands and then above again -
-    - a. `docker stop $(docker ps -a -q)`
-    - b. `docker rm $(docker ps -a -q)`
-    - c. `docker rmi postgres test-api/nestjs:1.0`
+    - If there is any issue, run these commands and then above again -
+        - a. `docker stop $(docker ps -a -q)`
+        - b. `docker rm $(docker ps -a -q)`
+        - c. `docker rmi postgres test-api/nestjs:1.0`
+        - d. Remove `pgdata` folder in `test-api` - `cd test-api && rm -rf pgdata`
 4. Access nestjs server at port 3000 - http://localhost:3000
 
 ### Other way
